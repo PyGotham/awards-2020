@@ -1,0 +1,46 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.5.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: requirements-txt-fixer
+        files: requirements\.in$
+      - id: trailing-whitespace
+  # TODO: Switch to jazzband if https://github.com/jazzband/pip-tools/pull/976
+  # is ever merged and tagged.
+  - repo: https://github.com/atugushev/pip-tools
+    rev: 848aad835e88f438727b367f2c7c82277de29e46
+    hooks:
+      - id: pip-compile
+        files: ^dev-requirements.(in|txt)$
+        pass_filenames: false
+        args: ["dev-requirements.in"]
+  - repo: https://github.com/humitos/mirrors-autoflake
+    rev: v1.3
+    hooks:
+      - id: autoflake
+        args: ['--in-place', '--remove-all-unused-imports', '--remove-unused-variable']
+  - repo: https://github.com/timothycrosley/isort
+    rev: 4.3.21
+    hooks:
+      - id: isort
+  - repo: https://github.com/psf/black
+    rev: 19.10b0
+    hooks:
+      - id: black
+        language_version: python3.8
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.7.9
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          - flake8_bugbear
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.761
+    hooks:
+      - id: mypy
+        args: ["--strict"]
