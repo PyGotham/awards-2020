@@ -19,7 +19,6 @@ indent_size = 4
 indent_style = space
 # isort-specific settings
 atomic = true
-force_alphabetical_sort = true
 force_sort_within_sections = true
 include_trailing_comma = true
 multi_line_output = 3
