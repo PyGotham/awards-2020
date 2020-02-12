@@ -6,6 +6,10 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[.flake8]
+indent_size = 4
+indent_style = space
+
 [*.ini]
 indent_size = 4
 indent_style = space
