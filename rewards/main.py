@@ -1,6 +1,6 @@
 from typing import Any, Dict, Optional
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 def create_app(test_config: Optional[Dict[str, Any]] = None) -> Flask:
@@ -10,9 +10,9 @@ def create_app(test_config: Optional[Dict[str, Any]] = None) -> Flask:
     if test_config:
         app.config.from_mapping(test_config)
 
-    @app.route("/hello")
-    def hello() -> str:
-        return "hello, world"
+    @app.route("/")
+    def home() -> str:
+        return render_template("home.html")
 
     return app
 
