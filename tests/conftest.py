@@ -4,7 +4,7 @@ from flask import Flask, Response
 from flask.testing import FlaskClient
 import pytest  # type: ignore[import]
 
-from rewards.main import create_app
+from awards.main import create_app
 
 
 @pytest.fixture  # type: ignore[misc]
