@@ -20,6 +20,10 @@ repos:
         files: ^dev-requirements.(in|txt)$
         pass_filenames: false
         args: ["dev-requirements.in"]
+      - id: pip-compile
+        files: ^test-requirements.(in|txt)$
+        pass_filenames: false
+        args: ["test-requirements.in"]
   - repo: https://github.com/humitos/mirrors-autoflake
     rev: v1.3
     hooks:
