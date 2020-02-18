@@ -5,7 +5,7 @@ from flask import Flask, render_template
 
 def create_app(test_config: Optional[Dict[str, Any]] = None) -> Flask:
     app = Flask("awards")
-    app.config.from_mapping(SECRET_KEY="dev")
+    app.config.from_object("awards.settings")
 
     if test_config:
         app.config.from_mapping(test_config)
