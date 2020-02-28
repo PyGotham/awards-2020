@@ -6,5 +6,6 @@ max-complexity = 18
 per-file-ignores =
     # TODO: This is necessary until there is a released version of pyflakes that
     # includes https://github.com/PyCQA/pyflakes/pull/455.
+    awards/db.py: F821
     tests/conftest.py: F821
 select = B,C,E,F,W,T4,B9
