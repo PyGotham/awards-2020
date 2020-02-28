@@ -2,6 +2,8 @@ from typing import Any, Dict, Optional
 
 from flask import Flask, render_template
 
+from . import db
+
 
 def create_app(test_config: Optional[Dict[str, Any]] = None) -> Flask:
     app = Flask("awards")
@@ -9,6 +11,8 @@ def create_app(test_config: Optional[Dict[str, Any]] = None) -> Flask:
 
     if test_config:
         app.config.from_mapping(test_config)
+
+    db.init_app(app)
 
     @app.route("/")
     def home() -> str:
