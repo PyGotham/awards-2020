@@ -20,6 +20,15 @@ kickstart your configuration with::
     Configuration for tests should be specified in the `testenv.setenv` section
     of `tox.ini`.
 
+--------
+Database
+--------
+
+In order to run this project, PostgreSQL_ is required. While the database's
+connection string is configurable, Postgres's citext_ module is required. The
+migrations will enable the extension, but it needs to be installed on the
+server before the migrations can be successfully applied.
+
 =======
 Testing
 =======
@@ -55,4 +64,6 @@ be specified through the `DATABASE_URI_MIGRATIONS` environment variable::
 
     $ env DATABASE_URI_MIGRATIONS=postgresql+psycopg2://user:password@host:port/dbname tox -e migrations
 
+.. _citext: https://www.postgresql.org/docs/current/citext.html
+.. _PostgreSQL: https://www.postgresql.org
 .. _tox: https://tox.readthedocs.io

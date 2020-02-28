@@ -3,3 +3,4 @@ flask
 psycopg2-binary
 python-decouple
 sqlalchemy
+sqlalchemy-citext
