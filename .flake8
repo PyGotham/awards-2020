@@ -4,6 +4,7 @@ ignore = E203, E266, E501, W503
 max-line-length = 80
 max-complexity = 18
 per-file-ignores =
+    alembic/env.py: E402
     # TODO: This is necessary until there is a released version of pyflakes that
     # includes https://github.com/PyCQA/pyflakes/pull/455.
     awards/db.py: F821
