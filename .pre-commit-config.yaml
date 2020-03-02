@@ -58,14 +58,3 @@ repos:
         args: ["--strict"]
         additional_dependencies:
           - sqlalchemy_stubs
-  - repo: local
-    hooks:
-      - id: alembic-autogen-check
-        name: alembic-autogen-check
-        additional_dependencies:
-          - tox
-        entry: tox -e alembic-autogen-check
-        pass_filenames: false
-        language: python
-        types:
-          - python

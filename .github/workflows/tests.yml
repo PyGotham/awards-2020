@@ -44,9 +44,10 @@ jobs:
           pip install -r test-requirements.txt
         if: steps.cache.outputs.cache-hit != 'true'
 
-      - name: Run tests
+      - name: Test migrations
         run: |
-          tox -e migrate
+          tox -e check-migrations
+          tox -e test-migrations
 
   test:
     runs-on: ubuntu-latest
