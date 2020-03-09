@@ -1,4 +1,5 @@
 alembic
 flask
+psycopg2-binary
 python-decouple
 sqlalchemy
