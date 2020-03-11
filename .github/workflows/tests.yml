@@ -20,6 +20,18 @@ jobs:
   migrations:
     runs-on: ubuntu-latest
 
+    services:
+      db:
+        image: postgres:12.2
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - uses: actions/checkout@v2
         with:
@@ -45,12 +57,25 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Test migrations
+        env:
+          DATABASE_URI_MIGRATIONS: postgresql+psycopg2://postgres:postgres@localhost/postgres
         run: |
-          tox -e check-migrations
-          tox -e test-migrations
+          tox -e migrations
 
   test:
     runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres:12.2
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - uses: actions/checkout@v2
@@ -77,5 +102,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Run tests
+        env:
+          DATABASE_URI_TESTS: postgresql+psycopg2://postgres:postgres@localhost/postgres
         run: |
           tox
