@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.abspath(os.getcwd()))
 from awards import settings
 
 # Import Base from models so that the models are defined.
-from awards.db import Base
+from awards.models import Base
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
