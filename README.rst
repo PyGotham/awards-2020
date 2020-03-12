@@ -43,12 +43,12 @@ Unit tests
 The unit tests will be run whenever tox is envoked without specifying an
 environment, but can be run directly with::
 
-    $ tox -e py38
+    $ tox -e unit
 
 The test environment require access to a database. It's connection string must
 be specified through the `DATABASE_URI_TESTS` environment variable::
 
-    $ env DATABASE_URI_TESTS=postgresql+psycopg2://user:password@host:port/dbname tox -e py38
+    $ env DATABASE_URI_TESTS=postgresql+psycopg2://user:password@host:port/dbname tox -e unit
 
 -------------------
 Checking migrations
