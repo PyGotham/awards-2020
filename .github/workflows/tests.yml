@@ -105,4 +105,4 @@ jobs:
         env:
           DATABASE_URI_TESTS: postgresql+psycopg2://postgres:postgres@localhost/postgres
         run: |
-          tox
+          tox --parallel=auto
