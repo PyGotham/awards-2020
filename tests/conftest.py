@@ -3,6 +3,8 @@ from __future__ import annotations
 import os.path
 
 from _pytest.fixtures import FixtureRequest  # type: ignore[import]
+from alembic.command import downgrade, upgrade  # type: ignore[import]
+from alembic.config import Config  # type: ignore[import]
 from flask import Flask, Response
 from flask.testing import FlaskClient
 import pytest  # type: ignore[import]
@@ -10,8 +12,6 @@ from sqlalchemy import event
 from sqlalchemy.orm import Session
 from sqlalchemy.orm.session import SessionTransaction
 
-from alembic.command import downgrade, upgrade  # type: ignore[import]
-from alembic.config import Config  # type: ignore[import]
 from awards.db import session
 from awards.main import create_app
 
