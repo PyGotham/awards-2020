@@ -5,8 +5,8 @@ max-line-length = 80
 max-complexity = 18
 per-file-ignores =
     migrations/env.py: E402
-    # TODO: This is necessary until there is a released version of pyflakes that
-    # includes https://github.com/PyCQA/pyflakes/pull/455.
+    # TODO: The F821s are necessary until there is a released version of
+    # pyflakes that includes https://github.com/PyCQA/pyflakes/pull/455.
     awards/db.py: F821
     tests/conftest.py: F821
 select = B,C,E,F,W,T4,B9
