@@ -1,8 +1,10 @@
 from typing import Any, Dict, Optional
 
 from flask import Flask, render_template
+from flask_security import Security  # type: ignore[import]
 
 from . import db
+from .models import SQLAlchemyUserDatastore
 
 
 def create_app(test_config: Optional[Dict[str, Any]] = None) -> Flask:
@@ -13,6 +15,9 @@ def create_app(test_config: Optional[Dict[str, Any]] = None) -> Flask:
         app.config.from_mapping(test_config)
 
     db.init_app(app)
+
+    user_datastore = SQLAlchemyUserDatastore(db.session)
+    Security(app, user_datastore, register_blueprint=True)
 
     @app.route("/")
     def home() -> str:

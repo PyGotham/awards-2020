@@ -10,4 +10,5 @@ per-file-ignores =
     awards/db.py: F821
     awards/models.py: F821
     tests/conftest.py: F821
+    tests/test_models.py: F821
 select = B,C,E,F,W,T4,B9
