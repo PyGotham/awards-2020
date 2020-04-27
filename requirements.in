@@ -1,6 +1,5 @@
-alembic
-flask
+django
+django-sesame
 psycopg2-binary
 python-decouple
-sqlalchemy
-sqlalchemy-citext
+ua-parser
