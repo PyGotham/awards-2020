@@ -33,6 +33,7 @@ repos:
     rev: v1.9.4
     hooks:
       - id: seed-isort-config
+        args: ['--application-directories=src']
   - repo: https://github.com/timothycrosley/isort
     rev: 4.3.21
     hooks:
