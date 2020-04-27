@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from awards.types import HttpRequestWithUser
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
@@ -9,6 +8,8 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from sesame.utils import get_query_string, get_user
+
+from awards.types import HttpRequestWithUser
 
 
 def login(request: HttpRequest) -> HttpResponse:
