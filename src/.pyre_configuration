@@ -1,0 +1,12 @@
+{
+  "binary": "../.tox/types/bin/pyre.bin",
+  "search_path": [
+    "../.tox/types/lib/pyre_check/stubs",
+    "../.tox/types/lib/python3.8/site-packages"
+  ],
+  "source_directories": [
+    "."
+  ],
+  "taint_models_path": "../.tox/types/lib/pyre_check/taint/",
+  "typeshed": "../.tox/types/lib/pyre_check/typeshed/"
+}
