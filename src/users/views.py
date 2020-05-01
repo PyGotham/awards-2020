@@ -12,6 +12,7 @@ from sesame.utils import get_query_string, get_user
 
 def login(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
+        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
         User = get_user_model()
 
         email = request.POST.get("email")

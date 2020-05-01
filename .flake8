@@ -5,4 +5,8 @@ max-line-length = 80
 max-complexity = 18
 per-file-ignores =
     src/awards/settings/dev.py: F405
+    # TODO: Remove this once https://github.com/facebook/pyre-check/pull/256
+    # can be used.
+    src/users/migrations/0001_initial.py: B950
+    src/users/views.py: B950
 select = B,C,E,F,W,T4,B9
