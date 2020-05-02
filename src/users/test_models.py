@@ -6,6 +6,7 @@ TEST_EMAIL = "user@example.org"
 
 pytestmark = pytest.mark.django_db
 
+# pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
 User = get_user_model()
 
 

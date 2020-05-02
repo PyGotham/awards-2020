@@ -41,6 +41,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "email",
+                    # pyre-ignore[28]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
                     django.contrib.postgres.fields.citext.CIEmailField(
                         max_length=254, unique=True, verbose_name="email address"
                     ),
@@ -48,7 +49,9 @@ class Migration(migrations.Migration):
                 (
                     "date_joined",
                     models.DateTimeField(
-                        default=django.utils.timezone.now, verbose_name="date joined"
+                        # pyre-ignore[6]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+                        default=django.utils.timezone.now,
+                        verbose_name="date joined",
                     ),
                 ),
             ],

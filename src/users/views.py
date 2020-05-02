@@ -9,11 +9,10 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from sesame.utils import get_query_string, get_user
 
-from awards.types import HttpRequestWithUser
-
 
 def login(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
+        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
         User = get_user_model()
 
         email = request.POST.get("email")
@@ -44,5 +43,5 @@ def magic_login(request: HttpRequest) -> HttpResponse:
 
 
 @login_required
-def profile(request: HttpRequestWithUser) -> HttpResponse:
+def profile(request: HttpRequest) -> HttpResponse:
     return HttpResponse(f"Hello {request.user}")

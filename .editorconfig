@@ -28,6 +28,10 @@ include_trailing_comma = true
 known_third_party = decouple,django,pytest,sesame
 multi_line_output = 3
 
+[.pyre_configuration]
+indent_size = 2
+indent_style = space
+
 [*.rst]
 indent_size = 4
 indent_style = space
