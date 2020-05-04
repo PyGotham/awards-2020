@@ -21,4 +21,8 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = []
 
     def __str__(self) -> str:
-        return str(self.email)
+        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+        username, domain = self.email.split("@", 1)
+
+        # Hide the characters in the username other than the first one.
+        return f"{username[0]}{'*' * (len(username) - 1)}@{domain}"
