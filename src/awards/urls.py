@@ -10,6 +10,8 @@ urlpatterns = [
     # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
     path("admin/", admin.site.urls),  # type: ignore
     # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+    path("apply/", include("applications.urls")),
+    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
     path("login", login, name="login"),
     # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
     path("login/magic", magic_login, name="magic-login"),
