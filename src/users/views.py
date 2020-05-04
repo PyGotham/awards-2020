@@ -34,6 +34,7 @@ def login(request: HttpRequest) -> HttpResponse:
                 html_message=message,
             )
 
+            # TODO: This should probably be a redirect instead.
             return HttpResponse("email sent")
     else:
         form = LoginForm()
