@@ -19,3 +19,9 @@ def test_email_is_case_insensitive() -> None:
     user1, _ = User.objects.get_or_create(email=TEST_EMAIL.lower())
     user2, _ = User.objects.get_or_create(email=TEST_EMAIL.upper())
     assert user1 == user2
+
+
+@pytest.mark.parametrize("number_of_characters", range(10))
+def test_email_is_redacted(number_of_characters: int) -> None:
+    user = User(email=f"a{'b' * number_of_characters}@example.org")
+    assert str(user) == f"a{'*' * number_of_characters}@example.org"
