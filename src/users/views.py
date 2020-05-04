@@ -9,30 +9,36 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from sesame.utils import get_query_string, get_user
 
+from users.forms import LoginForm
+
 
 def login(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
         User = get_user_model()
 
-        email = request.POST.get("email")
-        user, _ = User.objects.get_or_create(email=email)
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = request.POST.get("email")
+            user, _ = User.objects.get_or_create(email=email)
 
-        qs = get_query_string(user)
-        login_url = request.build_absolute_uri(reverse("magic-login")) + qs
+            qs = get_query_string(user)
+            login_url = request.build_absolute_uri(reverse("magic-login")) + qs
 
-        message = f'<a href="{login_url}">{login_url}</a>'
-        send_mail(
-            "PyGotham Financial Aid and Scholarship Login",
-            login_url,
-            settings.EMAIL_SENDER,
-            [user.email],
-            html_message=message,
-        )
+            message = f'<a href="{login_url}">{login_url}</a>'
+            send_mail(
+                "PyGotham Financial Aid and Scholarship Login",
+                login_url,
+                settings.EMAIL_SENDER,
+                [user.email],
+                html_message=message,
+            )
 
-        return HttpResponse("email sent")
+            return HttpResponse("email sent")
+    else:
+        form = LoginForm()
 
-    return render(request, "users/login.html")
+    return render(request, "users/login.html", {"form": form})
 
 
 def magic_login(request: HttpRequest) -> HttpResponse:
