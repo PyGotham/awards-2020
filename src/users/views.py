@@ -9,6 +9,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from sesame.utils import get_query_string, get_user
 
+from applications.models import Application
 from users.forms import LoginForm
 
 
@@ -51,4 +52,5 @@ def magic_login(request: HttpRequest) -> HttpResponse:
 
 @login_required
 def profile(request: HttpRequest) -> HttpResponse:
-    return HttpResponse(f"Hello {request.user}")
+    applications = Application.objects.filter(applicant=request.user)
+    return render(request, "users/profile.html", {"applications": applications})
