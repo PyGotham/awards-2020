@@ -8,12 +8,12 @@ appdirs==1.4.3            # via virtualenv
 asgiref==3.2.7            # via django
 aspy.yaml==1.3.0          # via pre-commit
 cfgv==3.0.0               # via pre-commit
-django-debug-toolbar==2.2
+django-debug-toolbar==2.2  # via -r dev-requirements.in
 django==3.0.5             # via django-debug-toolbar
 filelock==3.0.12          # via virtualenv
 identify==1.4.11          # via pre-commit
 nodeenv==1.3.5            # via pre-commit
-pre-commit==2.0.1
+pre-commit==2.0.1         # via -r dev-requirements.in
 pytz==2019.3              # via django
 pyyaml==5.3               # via aspy.yaml, pre-commit
 six==1.14.0               # via virtualenv

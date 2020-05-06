@@ -13,5 +13,5 @@ py==1.8.1                 # via tox
 pyparsing==2.4.6          # via packaging
 six==1.14.0               # via packaging, tox, virtualenv
 toml==0.10.0              # via tox
-tox==3.14.5
+tox==3.14.5               # via -r test-requirements.in
 virtualenv==20.0.4        # via tox

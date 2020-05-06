@@ -10,10 +10,8 @@ repos:
       - id: requirements-txt-fixer
         files: requirements\.in$
       - id: trailing-whitespace
-  # TODO: Switch to jazzband if https://github.com/jazzband/pip-tools/pull/976
-  # is ever merged and tagged.
-  - repo: https://github.com/atugushev/pip-tools
-    rev: 848aad835e88f438727b367f2c7c82277de29e46
+  - repo: https://github.com/jazzband/pip-tools
+    rev: 5.1.2
     hooks:
       - id: pip-compile
       - id: pip-compile
