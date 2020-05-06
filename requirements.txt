@@ -5,10 +5,10 @@
 #    pip-compile
 #
 asgiref==3.2.7            # via django
-django-sesame==1.7
-django==3.0.5
-psycopg2-binary==2.8.4
-python-decouple==3.3
+django-sesame==1.7        # via -r requirements.in
+django==3.0.5             # via -r requirements.in
+psycopg2-binary==2.8.4    # via -r requirements.in
+python-decouple==3.3      # via -r requirements.in
 pytz==2019.3              # via django
 sqlparse==0.3.1           # via django
-ua-parser==0.10.0
+ua-parser==0.10.0         # via -r requirements.in
