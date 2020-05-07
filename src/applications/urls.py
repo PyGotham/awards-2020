@@ -1,8 +1,21 @@
 from django.urls import path
 
-from applications.views import scholarship
+from applications.forms import (
+    FinancialAidApplicationForm,
+    ScholarshipApplicationForm,
+)
+from applications.views import apply
 
 urlpatterns = [
     # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
-    path("ticket", scholarship, name="scholarship"),
+    path(
+        "financial-aid",
+        apply,
+        {"form_type": FinancialAidApplicationForm},
+        name="financial_aid",
+    ),
+    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+    path(
+        "ticket", apply, {"form_type": ScholarshipApplicationForm}, name="scholarship"
+    ),
 ]

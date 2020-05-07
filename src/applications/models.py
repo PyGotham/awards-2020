@@ -36,10 +36,7 @@ class Application(models.Model):
     )
 
     def __str__(self) -> str:
-        # TODO: Once these ignores are removed, type_ and type_name
-        # should be combined into a single expression.
         # pyre-ignore[19]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
         type_ = Application.Type(self.type)
         # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
-        type_name = type_.name.replace("_", " ").title()
-        return f"{type_name} application for {self.applicant}"
+        return f"{type_.label} application for {self.applicant}"
