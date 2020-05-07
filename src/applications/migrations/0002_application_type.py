@@ -26,5 +26,7 @@ class Migration(migrations.Migration):
                 max_length=11,
             ),
         ),
-        migrations.RunPython(set_application_type_to_default),
+        migrations.RunPython(
+            set_application_type_to_default, reverse_code=migrations.RunPython.noop
+        ),
     ]
