@@ -51,23 +51,33 @@ class FinancialAidApplicationForm(ApplicationForm):
         travel_amount = cleaned_data.get("travel_amount") or 0
         if travel_amount < 0:
             raise forms.ValidationError(
-                # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
-                _("Your estimated travel costs cannot be negative.")
+                {
+                    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
+                    "travel_amount": _(
+                        "Your estimated travel costs cannot be negative."
+                    )
+                }
             )
 
         travel_requested = cleaned_data.get("travel_requested")
         if travel_requested:
             if not travel_amount:
                 raise forms.ValidationError(
-                    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
-                    _("Your estimated travel costs must be greater than $0.00.")
+                    {
+                        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
+                        "travel_amount": _(
+                            "Your estimated travel costs must be greater than $0.00."
+                        )
+                    }
                 )
         elif travel_amount:
             raise forms.ValidationError(
-                # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
-                _(
-                    "You must request travel assistance before providing an estimated cost."
-                )
+                {
+                    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
+                    "travel_requested": _(
+                        "You must request travel assistance before providing an estimated cost."
+                    )
+                }
             )
 
         return cleaned_data
