@@ -17,16 +17,13 @@ def test_financial_aid_travel_amount_must_be_greater_than_zero() -> None:
         {"travel_requested": True, "travel_amount": -1, **other_fields}
     )
     assert not form.is_valid()
-    assert "Your estimated travel costs cannot be negative." in form.errors["__all__"]
+    assert "travel_amount" in form.errors
 
     form = FinancialAidApplicationForm(
         {"travel_requested": True, "travel_amount": 0, **other_fields}
     )
     assert not form.is_valid()
-    assert (
-        "Your estimated travel costs must be greater than $0.00."
-        in form.errors["__all__"]
-    )
+    assert "travel_amount" in form.errors
 
     form = FinancialAidApplicationForm(
         {"travel_requested": True, "travel_amount": 1, **other_fields}
@@ -41,7 +38,4 @@ def test_financial_aid_travel_must_be_requested_if_amount_specified() -> None:
         {"travel_requested": False, "travel_amount": 1, **other_fields}
     )
     assert not form.is_valid()
-    assert (
-        "You must request travel assistance before providing an estimated cost."
-        in form.errors["__all__"]
-    )
+    assert "travel_requested" in form.errors
