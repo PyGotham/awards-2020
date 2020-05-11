@@ -34,6 +34,11 @@ class Application(models.Model):
         choices=Type.choices,
         default=Type.SCHOLARSHIP,
     )
+    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/260.
+    travel_amount = models.DecimalField(
+        max_digits=10, decimal_places=2, blank=True, null=True
+    )
+    lodging_requested = models.BooleanField(null=True)
 
     def __str__(self) -> str:
         # pyre-ignore[19]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
