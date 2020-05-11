@@ -1,5 +1,5 @@
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from applications.models import Application
 
@@ -16,7 +16,9 @@ class FinancialAidApplicationForm(ApplicationForm):
         model = Application
         fields = ("background", "reason_to_attend")
         labels = {
+            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "background": _("Tell us a little bit more about yourself"),
+            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "reason_to_attend": _("Why are you interested in attending PyGotham?"),
         }
 
@@ -28,6 +30,8 @@ class ScholarshipApplicationForm(ApplicationForm):
         model = Application
         fields = ("background", "reason_to_attend")
         labels = {
+            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "background": _("Tell us a little bit about yourself"),
+            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "reason_to_attend": _("Why are you interested in attending PyGotham?"),
         }
