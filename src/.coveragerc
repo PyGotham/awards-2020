@@ -1,0 +1,8 @@
+[report]
+omit =
+    */migrations/*
+    */site-packages/*
+
+[run]
+branch = true
+data_file = ../.coverage
