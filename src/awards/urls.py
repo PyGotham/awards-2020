@@ -1,10 +1,13 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic.base import TemplateView
 
 from users.views import login, magic_login
 
 urlpatterns = [
+    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+    path("", TemplateView.as_view(template_name="homepage/index.html")),
     # pyre doesn't include stubs for the Django admin.
     # TODO: Determine if we even want to use the admin.
     # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
