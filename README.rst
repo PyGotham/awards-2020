@@ -91,7 +91,14 @@ environments.
     either a forward or backward migration can be specified as well.
 
 ``runserver``
-    Run the development server with watchman_ watching for changes.
+    Run the development server with watchman_ watching for changes. If the
+    ``PYTPYTHONBREAKPOINT`` environment variable is set, it will be passed
+    through to the environment. The following debuggers are supported:
+
+    * bpdb
+    * ipdb
+    * pdb
+    * pudb
 
 ``shell``
     Run a Django-aware interactive interpretter. `bpython` or `IPython` can be
