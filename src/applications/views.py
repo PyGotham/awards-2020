@@ -12,7 +12,6 @@ from applications.models import Application
 
 @login_required
 def apply(request: HttpRequest, form_type: Type[ApplicationForm]) -> HttpResponse:
-    print(form_type)
     if request.method == "POST":
         application = Application(applicant=request.user, type=form_type.type)
         form = form_type(request.POST, instance=application)
