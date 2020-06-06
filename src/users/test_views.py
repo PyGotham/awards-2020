@@ -15,7 +15,7 @@ User = get_user_model()
 def test_login_creates_new_user(client: Client) -> None:
     assert not User.objects.filter(email=TEST_EMAIL)
     client.post("/login", {"email": TEST_EMAIL})
-    assert User.objects.filter(email=TEST_EMAIL)[0]
+    assert User.objects.get(email=TEST_EMAIL)
 
 
 # pyre-ignore[11]: This is fixed by https://github.com/facebook/pyre-check/pull/256.

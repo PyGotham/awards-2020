@@ -4,9 +4,9 @@ from typing import Type
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
-from applications.forms import ApplicationForm
+from applications.forms import APPLICATION_FORM_TYPES, ApplicationForm
 from applications.models import Application
 
 
@@ -24,3 +24,11 @@ def apply(request: HttpRequest, form_type: Type[ApplicationForm]) -> HttpRespons
         form = form_type()
 
     return render(request, "applications/form.html", {"form": form})
+
+
+@login_required
+def view(request: HttpRequest, pk: int) -> HttpResponse:
+    application = get_object_or_404(Application, pk=pk, applicant=request.user)
+    form_type = APPLICATION_FORM_TYPES[application.type]
+    form = form_type(instance=application)
+    return render(request, "applications/view.html", {"form": form})

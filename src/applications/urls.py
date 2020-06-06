@@ -4,7 +4,7 @@ from applications.forms import (
     FinancialAidApplicationForm,
     ScholarshipApplicationForm,
 )
-from applications.views import apply
+from applications.views import apply, view
 
 urlpatterns = [
     # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
@@ -18,4 +18,6 @@ urlpatterns = [
     path(
         "ticket", apply, {"form_type": ScholarshipApplicationForm}, name="scholarship"
     ),
+    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+    path("view/<int:pk>", view, name="application"),
 ]

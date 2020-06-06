@@ -99,3 +99,9 @@ class ScholarshipApplicationForm(ApplicationForm):
             # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "reason_to_attend": _("Why are you interested in attending PyGotham?"),
         }
+
+
+APPLICATION_FORM_TYPES = {
+    Application.Type.FINANCIAL_AID: FinancialAidApplicationForm,
+    Application.Type.SCHOLARSHIP: ScholarshipApplicationForm,
+}
