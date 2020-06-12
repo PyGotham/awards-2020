@@ -4,4 +4,8 @@
   <input type="submit" value="Submit application">
 </form>
 
-<a href="{% url "homepage" %}">Start over</a>
+{% if form.instance.id %}
+  <a href="{% url "users:profile" %}">Never mind</a>
+{% else %}
+  <a href="{% url "homepage" %}">Start over</a>
+{% endif %}
