@@ -11,7 +11,7 @@ repos:
         files: requirements\.in$
       - id: trailing-whitespace
   - repo: https://github.com/jazzband/pip-tools
-    rev: 5.2.0
+    rev: 5.2.1
     hooks:
       - id: pip-compile
       - id: pip-compile
@@ -28,7 +28,7 @@ repos:
       - id: autoflake
         args: ['--in-place', '--remove-all-unused-imports', '--remove-unused-variable']
   - repo: https://github.com/asottile/seed-isort-config
-    rev: v2.1.1
+    rev: v2.2.0
     hooks:
       - id: seed-isort-config
         args: ['--application-directories=src']
@@ -42,7 +42,7 @@ repos:
       - id: black
         language_version: python3.8
   - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.8.2
+    rev: 3.8.3
     hooks:
       - id: flake8
         additional_dependencies:
