@@ -1,3 +1,3 @@
 {% for application in applications %}
-  <a href="{% url "application" pk=application.id %}">{{ application }}</a>
+  <a href="{% url "applications:view" pk=application.id %}">{{ application }}</a>
 {% endfor %}
