@@ -10,6 +10,8 @@ app_name = "applications"
 
 urlpatterns = [
     # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+    path("edit/<int:pk>", apply, name="edit"),
+    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
     path(
         "financial-aid",
         apply,
