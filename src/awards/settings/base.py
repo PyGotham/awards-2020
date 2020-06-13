@@ -94,7 +94,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_URL = "login"
-
+LOGOUT_REDIRECT_URL = "homepage"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
