@@ -46,7 +46,7 @@ def login(request: HttpRequest) -> HttpResponse:
 def magic_login(request: HttpRequest) -> HttpResponse:
     user = get_user(request)
     if user:
-        return redirect("profile")
+        return redirect("users:profile")
     return redirect("oops")
 
 
