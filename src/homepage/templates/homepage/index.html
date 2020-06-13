@@ -1,2 +1,7 @@
 <a href="{% url "applications:scholarship" %}">I would like a ticket</a>
 <a href="{% url "applications:financial_aid" %}">I would like travel reimbursement, lodging, and/or a ticket</a>
+
+{% if not request.user.is_authenticated %}
+  Already submitted an application? <a href="{% url "login" %}">log in</a> to
+  check its status.
+{% endif %}

@@ -14,6 +14,7 @@ per-file-ignores =
     src/applications/migrations/0003_auto_20200507_0125.py: B950
     src/applications/models.py: B950
     src/applications/test_views.py: B950
+    src/homepage/test_views.py: B950
     src/users/migrations/0001_initial.py: B950
     src/users/forms.py: B950
     src/users/models.py: B950
