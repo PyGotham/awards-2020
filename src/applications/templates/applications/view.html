@@ -1,3 +1,7 @@
-{{ form }}
+{% extends "base.html" %}
 
-<a href="{% url "applications:edit" pk=form.instance.id %}">Edit application</a>
+{% block content %}
+  {{ form }}
+
+  <a href="{% url "applications:edit" pk=form.instance.id %}">Edit application</a>
+{% endblock %}

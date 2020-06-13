@@ -1,3 +1,7 @@
-{% for application in applications %}
-  <a href="{% url "applications:view" pk=application.id %}">{{ application }}</a>
-{% endfor %}
+{% extends "base.html" %}
+
+{% block content %}
+  {% for application in applications %}
+    <a href="{% url "applications:view" pk=application.id %}">{{ application }}</a>
+  {% endfor %}
+{% endblock %}
