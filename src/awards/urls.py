@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.auth.views import LogoutView
 from django.urls import include, path
 from django.views.generic.base import TemplateView
 
@@ -20,6 +21,8 @@ urlpatterns = [
     path("login", login, name="login"),
     # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
     path("login/magic", magic_login, name="magic-login"),
+    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+    path("logout", LogoutView.as_view(), name="logout"),
     # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
     path("users/", include("users.urls", namespace="users")),
 ]
