@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}PyGotham Financial Awards{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    {% block body %}
+      <nav>
+	{% if request.user.is_authenticated %}
+	  <a href="{% url "logout" %}">Log out</a>
+	{% endif %}
+      </nav>
+      {% block content %}{% endblock %}
+    {% endblock %}
+  </body>
+</html>
