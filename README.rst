@@ -83,6 +83,9 @@ directory. To reduce the need to move back and worth between it and the root of
 the repository, several helpful management commands are exposed as tox
 environments.
 
+``dbshell``
+    Run |psql|_ for the configured database.
+
 ``makemigrations``
     Generate new migrations for installed applications.
 
@@ -111,6 +114,9 @@ environments.
 .. _citext: https://www.postgresql.org/docs/current/citext.html
 .. _ipython: https://ipython.readthedocs.io
 .. _PostgreSQL: https://www.postgresql.org
+.. _psql: https://www.postgresql.org/docs/current/app-psql.html
 .. _pyre: https://pyre-check.org
 .. _tox: https://tox.readthedocs.io
 .. _watchman: https://facebook.github.io/watchman/
+
+.. |psql| replace:: ``psql``
