@@ -104,7 +104,7 @@ environments.
     * pudb
 
 ``shell``
-    Run a Django-aware interactive interpretter. `bpython` or `IPython` can be
+    Run a Django-aware interactive interpretter. |bpython|_ or |ipython|_ can be
     specified to select an interface other than the default Python REPL.
 
 ``startapp``
@@ -119,4 +119,6 @@ environments.
 .. _tox: https://tox.readthedocs.io
 .. _watchman: https://facebook.github.io/watchman/
 
+.. |bpython| replace:: ``bpython``
+.. |ipython| replace:: ``ipython``
 .. |psql| replace:: ``psql``
