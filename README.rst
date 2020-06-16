@@ -83,6 +83,11 @@ directory. To reduce the need to move back and worth between it and the root of
 the repository, several helpful management commands are exposed as tox
 environments.
 
+``createsuperuser``
+    Create a new user with access to the admin. While it will prompt for a
+    password, the value will be discarded; password-based logins are not
+    supported.
+
 ``dbshell``
     Run |psql|_ for the configured database.
 
