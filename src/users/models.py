@@ -1,10 +1,27 @@
 from __future__ import annotations
 
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.postgres.fields import CIEmailField
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
+
+
+# pyre-ignore[11]: This is fixed by https://github.com/facebook/pyre-check/pull/272.
+class UserManager(BaseUserManager):
+    def create_user(self, email: str, password: str) -> User:
+        # pyre-ignore[28]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+        user = User(email=email)
+        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+        user.save()
+        return user
+
+    def create_superuser(self, email: str, password: str) -> User:
+        # pyre-ignore[28]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+        user = User(email=email, is_staff=True)
+        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+        user.save()
+        return user
 
 
 # pyre-ignore[11]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
@@ -21,6 +38,8 @@ class User(AbstractBaseUser):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
+
+    objects = UserManager()
 
     def __str__(self) -> str:
         # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
