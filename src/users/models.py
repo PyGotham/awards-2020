@@ -41,9 +41,18 @@ class User(AbstractBaseUser):
 
     objects = UserManager()
 
+    is_active = True
+
     def __str__(self) -> str:
         # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
         username, domain = self.email.split("@", 1)
 
         # Hide the characters in the username other than the first one.
         return f"{username[0]}{'*' * (len(username) - 1)}@{domain}"
+
+    # These methods are required by the Django admin.
+    def has_module_perms(self, package_name: str) -> bool:
+        return self.is_staff
+
+    def has_perm(self, perm: str, object: object = None) -> bool:
+        return self.is_staff
