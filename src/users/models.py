@@ -17,6 +17,8 @@ class User(AbstractBaseUser):
     # pyre-ignore[6]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
     date_joined = models.DateTimeField(_("date joined"), default=timezone.now)
 
+    is_staff = models.BooleanField(_("user can access the admin"), default=False)
+
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
