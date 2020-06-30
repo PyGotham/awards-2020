@@ -3,5 +3,5 @@
 {% block content %}
   {{ form }}
 
-  <a href="{% url "applications:edit" pk=form.instance.id %}">Edit application</a>
+  <a href="{% url "applications:edit_"|add:form.instance.type pk=form.instance.id %}">Edit application</a>
 {% endblock %}

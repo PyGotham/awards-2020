@@ -7,12 +7,14 @@ from django.core.mail import send_mail
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.views.decorators.http import require_GET, require_http_methods
 from sesame.utils import get_query_string, get_user
 
 from applications.models import Application
 from users.forms import LoginForm
 
 
+@require_http_methods(["GET", "POST"])
 def login(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
@@ -43,6 +45,7 @@ def login(request: HttpRequest) -> HttpResponse:
     return render(request, "users/login.html", {"form": form})
 
 
+@require_GET
 def magic_login(request: HttpRequest) -> HttpResponse:
     user = get_user(request)
     if user:
@@ -51,6 +54,7 @@ def magic_login(request: HttpRequest) -> HttpResponse:
 
 
 @login_required
+@require_GET
 def profile(request: HttpRequest) -> HttpResponse:
     applications = Application.objects.filter(applicant=request.user)
     return render(request, "users/profile.html", {"applications": applications})

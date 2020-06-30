@@ -12,6 +12,10 @@ from applications.models import Application
 class ApplicationForm(forms.ModelForm):
     type: Application.Type
 
+    class Meta:
+        model = Application
+        fields = []
+
 
 class FinancialAidApplicationForm(ApplicationForm):
     type = Application.Type.FINANCIAL_AID
