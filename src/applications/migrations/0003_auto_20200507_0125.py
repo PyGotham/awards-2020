@@ -18,7 +18,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="application",
             name="travel_amount",
-            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/260.
             field=models.DecimalField(
                 blank=True, decimal_places=2, max_digits=10, null=True
             ),
