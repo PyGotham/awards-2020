@@ -59,13 +59,10 @@ class FinancialAidApplicationForm(ApplicationForm):
                     }
                 )
         elif travel_amount:
-            raise forms.ValidationError(
-                {
-                    "travel_requested": _(
-                        "You must request travel assistance before providing an estimated cost."
-                    )
-                }
+            msg = _(
+                "You must request travel assistance before providing an estimated cost."
             )
+            raise forms.ValidationError({"travel_requested": msg})
 
         return cleaned_data
 
