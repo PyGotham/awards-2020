@@ -52,7 +52,6 @@ def test_user_can_edit_their_application(client: Client) -> None:
     qs = get_query_string(user)
     client.get(f"/login/magic{qs}")
 
-    # pyre-ignore[28]: Investigate type stubs for factory-boy.
     application = ApplicationFactory(applicant=user)
 
     expected = f"{application.background} changed"
@@ -74,7 +73,6 @@ def test_user_can_view_their_application(client: Client) -> None:
     qs = get_query_string(user)
     client.get(f"/login/magic{qs}")
 
-    # pyre-ignore[28]: Investigate type stubs for factory-boy.
     application = ApplicationFactory(applicant=user)
 
     response = client.get(f"/apply/view/{application.id}")
@@ -85,13 +83,11 @@ def test_user_can_view_their_application(client: Client) -> None:
 # pyre-ignore[11]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
 def test_user_cant_view_someone_elses_application(client: Client) -> None:
     user = UserFactory()
-    # pyre-ignore[28]: Investigate type stubs for factory-boy.
     other = UserFactory(email=f"other+{user.email}")
 
     qs = get_query_string(user)
     client.get(f"/login/magic{qs}")
 
-    # pyre-ignore[28]: Investigate type stubs for factory-boy.
     application = ApplicationFactory(applicant=other)
 
     response = client.get(f"/apply/view/{application.id}")
