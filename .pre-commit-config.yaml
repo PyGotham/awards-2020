@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.1.0
+    rev: v3.2.0
     hooks:
       - id: check-merge-conflict
       - id: check-yaml
@@ -11,7 +11,7 @@ repos:
         files: requirements\.in$
       - id: trailing-whitespace
   - repo: https://github.com/jazzband/pip-tools
-    rev: 5.2.1
+    rev: 5.3.1
     hooks:
       - id: pip-compile
       - id: pip-compile
@@ -23,7 +23,7 @@ repos:
         pass_filenames: false
         args: ["test-requirements.in"]
   - repo: https://github.com/humitos/mirrors-autoflake
-    rev: v1.3
+    rev: v1.1
     hooks:
       - id: autoflake
         args: ['--in-place', '--remove-all-unused-imports', '--remove-unused-variable']
@@ -33,11 +33,11 @@ repos:
       - id: seed-isort-config
         args: ['--application-directories=src']
   - repo: https://github.com/timothycrosley/isort
-    rev: 5.1.1
+    rev: 5.4.2
     hooks:
       - id: isort
   - repo: https://github.com/psf/black
-    rev: 19.10b0
+    rev: 20.8b1
     hooks:
       - id: black
         language_version: python3.8

@@ -36,5 +36,7 @@ urlpatterns = [
 if settings.DEBUG:
     import debug_toolbar
 
-    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
-    urlpatterns = [path("__debug__/", include(debug_toolbar.urls)),] + urlpatterns
+    urlpatterns = [
+        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
+        path("__debug__/", include(debug_toolbar.urls)),
+    ] + urlpatterns
