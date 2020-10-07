@@ -6,19 +6,16 @@ import pytest
 
 TEST_EMAIL = "user@example.org"
 
-# pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
 User = get_user_model()
 
 
 @pytest.mark.django_db
-# pyre-ignore[11]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
 def test_login_creates_new_user(client: Client) -> None:
     assert not User.objects.filter(email=TEST_EMAIL)
     client.post("/login", {"email": TEST_EMAIL})
     assert User.objects.get(email=TEST_EMAIL)
 
 
-# pyre-ignore[11]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
 def test_login_requires_email(client: Client) -> None:
     response = client.post("/login")
     assert response.status_code not in (301, 302)

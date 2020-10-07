@@ -24,7 +24,6 @@ class ApplicationFactory(DjangoModelFactory):
 
 class UserFactory(DjangoModelFactory):
     class Meta:
-        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
         model = get_user_model()
         django_get_or_create = ("email",)
 
@@ -32,7 +31,6 @@ class UserFactory(DjangoModelFactory):
 
 
 @pytest.mark.django_db
-# pyre-ignore[11]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
 def test_that_one_of_form_type_and_pk_is_required_by_apply(client: Client) -> None:
     user = UserFactory()
     qs = get_query_string(user)
@@ -46,7 +44,6 @@ def test_that_one_of_form_type_and_pk_is_required_by_apply(client: Client) -> No
 
 
 @pytest.mark.django_db
-# pyre-ignore[11]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
 def test_user_can_edit_their_application(client: Client) -> None:
     user = UserFactory()
     qs = get_query_string(user)
@@ -67,7 +64,6 @@ def test_user_can_edit_their_application(client: Client) -> None:
 
 
 @pytest.mark.django_db
-# pyre-ignore[11]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
 def test_user_can_view_their_application(client: Client) -> None:
     user = UserFactory()
     qs = get_query_string(user)
@@ -80,7 +76,6 @@ def test_user_can_view_their_application(client: Client) -> None:
 
 
 @pytest.mark.django_db
-# pyre-ignore[11]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
 def test_user_cant_view_someone_elses_application(client: Client) -> None:
     user = UserFactory()
     other = UserFactory(email=f"other+{user.email}")
