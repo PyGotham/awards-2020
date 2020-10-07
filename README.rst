@@ -115,8 +115,18 @@ environments.
 ``startapp``
     Create a new Django application with the specified name.
 
+=============
+Hacktoberfest
+=============
+
+This project will accept and review pull requests submitted during
+Hacktoberfest_. PRs submitted with the sole purpose of earning a free t-shirt
+will be marked as spam. If this becomes a problem, the `hacktoberfest` topic
+will be removed from the repository.
+
 .. _bpython: https://bpython-interpreter.org
 .. _citext: https://www.postgresql.org/docs/current/citext.html
+.. _Hacktoberfest: https://hacktoberfest.digitalocean.com
 .. _ipython: https://ipython.readthedocs.io
 .. _PostgreSQL: https://www.postgresql.org
 .. _psql: https://www.postgresql.org/docs/current/app-psql.html
