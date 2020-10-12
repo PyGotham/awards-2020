@@ -17,7 +17,6 @@ class FinancialAidApplicationForm(ApplicationForm):
     type = Application.Type.FINANCIAL_AID
 
     travel_requested = forms.BooleanField(
-        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
         label=_("Do you need assistance with travel?"),
         required=False,
     )
@@ -32,13 +31,9 @@ class FinancialAidApplicationForm(ApplicationForm):
             "lodging_requested",
         )
         labels = {
-            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "background": _("Tell us a little bit more about yourself"),
-            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "lodging_requested": _("Do you need assistance with lodging?"),
-            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "reason_to_attend": _("Why are you interested in attending PyGotham?"),
-            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "travel_amount": _("What is the estimated cost (USD)?"),
         }
         widgets = {
@@ -51,12 +46,7 @@ class FinancialAidApplicationForm(ApplicationForm):
         travel_amount = cleaned_data.get("travel_amount") or 0
         if travel_amount < 0:
             raise forms.ValidationError(
-                {
-                    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
-                    "travel_amount": _(
-                        "Your estimated travel costs cannot be negative."
-                    )
-                }
+                {"travel_amount": _("Your estimated travel costs cannot be negative.")}
             )
 
         travel_requested = cleaned_data.get("travel_requested")
@@ -64,26 +54,20 @@ class FinancialAidApplicationForm(ApplicationForm):
             if not travel_amount:
                 raise forms.ValidationError(
                     {
-                        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
                         "travel_amount": _(
                             "Your estimated travel costs must be greater than $0.00."
                         )
                     }
                 )
         elif travel_amount:
-            raise forms.ValidationError(
-                {
-                    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
-                    "travel_requested": _(
-                        "You must request travel assistance before providing an estimated cost."
-                    )
-                }
+            msg = _(
+                "You must request travel assistance before providing an estimated cost."
             )
+            raise forms.ValidationError({"travel_requested": msg})
 
         return cleaned_data
 
     def clean_lodging_requested(self) -> bool:
-        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/261.
         return bool(self.cleaned_data.get("lodging_requested"))
 
 
@@ -94,9 +78,7 @@ class ScholarshipApplicationForm(ApplicationForm):
         model = Application
         fields = ("background", "reason_to_attend")
         labels = {
-            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "background": _("Tell us a little bit about yourself"),
-            # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/262.
             "reason_to_attend": _("Why are you interested in attending PyGotham?"),
         }
 

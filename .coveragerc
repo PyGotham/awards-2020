@@ -5,4 +5,4 @@ omit =
 
 [run]
 branch = true
-data_file = ../.coverage
+data_file = .coverage
