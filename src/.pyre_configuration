@@ -2,7 +2,7 @@
   "binary": "../.tox/types/bin/pyre.bin",
   "search_path": [
     "../.tox/types/lib/pyre_check/stubs",
-    "../.tox/types/lib/python3.8/site-packages"
+    "../.tox/types/lib/python3.9/site-packages"
   ],
   "source_directories": [
     "."
