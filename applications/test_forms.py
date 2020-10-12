@@ -6,7 +6,6 @@ def test_financial_aid_lodging_requested_is_treated_as_boolean() -> None:
 
     form = FinancialAidApplicationForm(other_fields)
     assert form.is_valid()
-    # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/261.
     assert form.cleaned_data["lodging_requested"] is False
 
 
