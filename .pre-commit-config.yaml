@@ -7,6 +7,8 @@ repos:
       - id: debug-statements
       - id: end-of-file-fixer
       - id: mixed-line-ending
+      - id: requirements-txt-fixer
+        files: requirements\.in$
       - id: trailing-whitespace
   - repo: https://github.com/jazzband/pip-tools
     rev: 5.3.1
