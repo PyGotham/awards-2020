@@ -1,4 +1,4 @@
-django
+django>=3.0,<3.1
 django-sesame
 psycopg2-binary
 python-decouple

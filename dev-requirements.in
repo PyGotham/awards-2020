@@ -1,2 +1,6 @@
+# TODO(dirn): Remove this as part of #80.
+# Django is a dependency of django-debug-toolbar. Without specifying the version
+# here, pip-compile would use the latest version.
+django>=3.0,<3.1
 django-debug-toolbar
 pre-commit
