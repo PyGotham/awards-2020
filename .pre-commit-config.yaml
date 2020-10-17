@@ -7,19 +7,18 @@ repos:
       - id: debug-statements
       - id: end-of-file-fixer
       - id: mixed-line-ending
+      - id: requirements-txt-fixer
+        files: requirements\.in$
       - id: trailing-whitespace
   - repo: https://github.com/jazzband/pip-tools
     rev: 5.3.1
     hooks:
       - id: pip-compile
-        name: Compile requirements
       - id: pip-compile
-        name: Compile development requirements
         files: ^dev-requirements.(in|txt)$
         pass_filenames: false
         args: ["dev-requirements.in"]
       - id: pip-compile
-        name: Compile test requirements
         files: ^test-requirements.(in|txt)$
         pass_filenames: false
         args: ["test-requirements.in"]
