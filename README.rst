@@ -70,7 +70,7 @@ environment. It can be output without running the unit tests with::
 Type checks
 -----------
 
-The type checks are done using pyre_ and can be run with::
+The type checks are done using Mypy_ and can be run with::
 
     $ tox -e types
 
@@ -128,9 +128,9 @@ will be removed from the repository.
 .. _citext: https://www.postgresql.org/docs/current/citext.html
 .. _Hacktoberfest: https://hacktoberfest.digitalocean.com
 .. _ipython: https://ipython.readthedocs.io
+.. _Mypy: https://mypy.readthedocs.io
 .. _PostgreSQL: https://www.postgresql.org
 .. _psql: https://www.postgresql.org/docs/current/app-psql.html
-.. _pyre: https://pyre-check.org
 .. _tox: https://tox.readthedocs.io
 .. _watchman: https://facebook.github.io/watchman/
 

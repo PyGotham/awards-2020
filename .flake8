@@ -4,20 +4,5 @@ ignore = E203, E231, E266, E501, W503
 max-line-length = 80
 max-complexity = 18
 per-file-ignores =
-    src/awards/settings/dev.py: F405
-    # TODO: Remove these once
-    # https://github.com/facebook/pyre-check/pull/256,
-    # https://github.com/facebook/pyre-check/pull/260,
-    # https://github.com/facebook/pyre-check/pull/261, and
-    # https://github.com/facebook/pyre-check/pull/262 can be used.
-    src/applications/forms.py: B950
-    src/applications/migrations/0003_auto_20200507_0125.py: B950
-    src/applications/models.py: B950
-    src/applications/test_views.py: B950
-    src/awards/urls.py: B950
-    src/homepage/test_views.py: B950
-    src/users/migrations/0001_initial.py: B950
-    src/users/forms.py: B950
-    src/users/models.py: B950
-    src/users/views.py: B950
+    awards/settings/dev.py: F405
 select = B,C,E,F,W,T4,B9

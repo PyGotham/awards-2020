@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from sesame.utils import get_query_string, get_user
+from sesame.utils import get_query_string, get_user  # type: ignore[import]
 
 from applications.models import Application
 from users.forms import LoginForm
@@ -15,7 +15,6 @@ from users.forms import LoginForm
 
 def login(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
-        # pyre-ignore[16]: This is fixed by https://github.com/facebook/pyre-check/pull/256.
         User = get_user_model()
 
         form = LoginForm(request.POST)
