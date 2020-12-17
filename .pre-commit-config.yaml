@@ -11,7 +11,7 @@ repos:
         files: requirements\.in$
       - id: trailing-whitespace
   - repo: https://github.com/jazzband/pip-tools
-    rev: 5.3.1
+    rev: 5.4.0
     hooks:
       - id: pip-compile
         name: Compile requirements
