@@ -40,7 +40,6 @@ def test_that_one_of_form_type_and_pk_is_required_by_apply(client: Client) -> No
 
     request = HttpRequest()
     request.user = user
-    # pyre-ignore[16]: pyre doesn't think ExceptionInfo as an __enter__.
     with pytest.raises(Http404):
         apply(request, form_type=None, pk=None)
 
