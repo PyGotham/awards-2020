@@ -4,11 +4,21 @@
 #
 #    pip-compile
 #
-asgiref==3.3.0            # via django
-django-sesame==2.0        # via -r requirements.in
-django==3.0.10            # via -r requirements.in, django-sesame
-psycopg2-binary==2.8.6    # via -r requirements.in
-python-decouple==3.3      # via -r requirements.in
-pytz==2020.1              # via django
-sqlparse==0.4.1           # via django
-ua-parser==0.10.0         # via -r requirements.in
+asgiref==3.3.0
+    # via django
+django-sesame==2.0
+    # via -r requirements.in
+django==3.1.9
+    # via
+    #   -r requirements.in
+    #   django-sesame
+psycopg2-binary==2.8.6
+    # via -r requirements.in
+python-decouple==3.3
+    # via -r requirements.in
+pytz==2020.1
+    # via django
+sqlparse==0.4.1
+    # via django
+ua-parser==0.10.0
+    # via -r requirements.in
